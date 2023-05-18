@@ -1,0 +1,24 @@
+{
+  "name": "nodepackage",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/app.ts",
+  "scripts": {
+    "start": "nodemon",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.2.0",
+    "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.22",
+    "reflect-metadata": "^0.1.13",
+    "ts-node": "^10.9.1",
+    "typeorm": "^0.3.16"
+  }
+}
