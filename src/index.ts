@@ -1,9 +1,11 @@
 import { DataSource } from "typeorm";
-import { filemaster } from "./models/FileMaster";
-import { fileprocessdetails } from "./models/FileProcessDetails";
-import { filetypes } from "./models/FileTypes";
-import { operations } from "./models/Operations";
-import { projects } from "./models/Projects";
+import { filemaster } from "./FileMaster";
+import { fileprocessdetails } from "./FileProcessDetails";
+import { filetypes } from "./FileTypes";
+import { operations } from "./Operations";
+import { projects } from "./Projects";
+
+
 
 export class Database {
   public dbconnection;

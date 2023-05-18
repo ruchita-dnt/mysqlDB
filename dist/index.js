@@ -2,11 +2,11 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Database = void 0;
 const typeorm_1 = require("typeorm");
-const FileMaster_1 = require("./models/FileMaster");
-const FileProcessDetails_1 = require("./models/FileProcessDetails");
-const FileTypes_1 = require("./models/FileTypes");
-const Operations_1 = require("./models/Operations");
-const Projects_1 = require("./models/Projects");
+const FileMaster_1 = require("./FileMaster");
+const FileProcessDetails_1 = require("./FileProcessDetails");
+const FileTypes_1 = require("./FileTypes");
+const Operations_1 = require("./Operations");
+const Projects_1 = require("./Projects");
 class Database {
     // console.log("this is datasource", DataSource, AppDataSource)
     async createDBconnection() {
