@@ -2,5 +2,5 @@
   "watch": ["src"],
   "ext": ".ts",
   "ignore": [],
-  "exec": "ts-node -r ./src/app.ts -p ./tsconfig.json"
+  "exec": "ts-node -r ./index.ts -p ./tsconfig.json"
 }
