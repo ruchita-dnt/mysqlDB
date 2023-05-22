@@ -1,27 +1,27 @@
 import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
 import { ResourceStatusEnum } from "./Enum";
 
-@Entity('projects')
-export class projects {
+@Entity('Projects')
+export class Projects {
   @PrimaryGeneratedColumn()
-  id: number;
+  id!: number;
 
-  @Column("varchar",{ length: 45 })
-  name: string;
+  @Column("varchar", { length: 45 })
+  name!: string;
 
   @Column({ type: 'text' })
-  description: string;
+  description!: string;
 
-  @Column({ type: 'enum' , enum: ResourceStatusEnum})
-  status: ResourceStatusEnum ;
-
-  @Column("datetime")
-  createdAt: Date;
+  @Column({ type: 'enum', enum: ResourceStatusEnum })
+  status!: ResourceStatusEnum;
 
   @Column("datetime")
-  updatedAt: Date;
+  createdAt!: Date;
+
+  @Column("datetime")
+  updatedAt!: Date;
 
   @Column("datetime", { nullable: true })
-  deletedAt: Date;
+  deletedAt!: Date;
 }
 

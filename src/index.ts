@@ -1,13 +1,13 @@
 import { DataSource } from "typeorm";
-import { file_master } from "./FileMaster";
-import { file_process_details } from "./FileProcessDetails";
-import { file_types } from "./FileTypes";
-import { operations } from "./Operations";
-import { projects } from "./Projects";
+import { Documents } from "./Documents";
+import { DocumentAuditTrail } from "./DocumentAuditTrail";
+import { DocumentTypes } from "./DocumentTypes";
+import { Operations } from "./Operations";
+import { Projects } from "./Projects";
 
 export class Database {
   
-  public dbconnection; 
+  public dbconnection!: DataSource; 
 
   async createDBconnection() {
     this.dbconnection = new DataSource({
@@ -19,13 +19,13 @@ export class Database {
       password: "Admin@123",
       database: "gedms",
       synchronize: true,
-      logging: true,
+      logging: false,
       entities: [
-        file_master,
-        file_process_details,
-        file_types,
-        operations,
-        projects,
+        Documents,
+        DocumentTypes,
+        DocumentAuditTrail,
+        Operations,
+        Projects,
       ],
       subscribers: [],
       migrations: [],
@@ -36,7 +36,7 @@ export class Database {
       .then(() => {
         console.log("Data Source has been initialized!");
       })
-      .catch((err) => {
+      .catch((err:any) => {
         console.error("Error during Data Source initialization", err);
       });
   }

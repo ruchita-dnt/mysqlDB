@@ -30,9 +30,9 @@
       "allowSyntheticDefaultImports": true,
       "resolveJsonModule": true,
       "esModuleInterop": true,
-      "strict": false
+      "strict": true
     },
-    "include": ["./src/", "./test/**/*.ts"],
-    "exclude": ["node_modules", "dist", "build", "./src/coverage"]
+    "include": ["./src/"],
+    "exclude": ["node_modules"]
   }
   
