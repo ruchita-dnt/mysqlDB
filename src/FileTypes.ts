@@ -1,7 +1,8 @@
-import { Entity, PrimaryGeneratedColumn, Column, Binary } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import { ResourceStatusEnum } from "./Enum";
 
-@Entity("filetypes")
-export class filetypes {
+@Entity("file_types")
+export class file_types {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -11,8 +12,8 @@ export class filetypes {
   @Column("varchar",{ length: 45 })
   type: string;
 
-  // @Column({ type: 'enum'})
-  // status: unknown ;
+  @Column({ type: 'enum' , enum: ResourceStatusEnum})
+  status: ResourceStatusEnum ;
 
   @Column("datetime")
   createdAt: Date;
@@ -20,6 +21,6 @@ export class filetypes {
   @Column("datetime")
   updatedAt: Date;
 
-  @Column("datetime")
+  @Column("datetime", { nullable: true })
   deletedAt: Date;
 }

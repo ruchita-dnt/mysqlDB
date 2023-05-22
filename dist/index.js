@@ -8,7 +8,6 @@ const FileTypes_1 = require("./FileTypes");
 const Operations_1 = require("./Operations");
 const Projects_1 = require("./Projects");
 class Database {
-    // console.log("this is datasource", DataSource, AppDataSource)
     async createDBconnection() {
         this.dbconnection = new typeorm_1.DataSource({
             type: "mysql",
@@ -21,9 +20,9 @@ class Database {
             synchronize: true,
             logging: true,
             entities: [
-                FileMaster_1.filemaster,
-                FileProcessDetails_1.fileprocessdetails,
-                FileTypes_1.filetypes,
+                FileMaster_1.file_master,
+                FileProcessDetails_1.file_process_details,
+                FileTypes_1.file_types,
                 Operations_1.operations,
                 Projects_1.projects,
             ],
@@ -71,9 +70,13 @@ class Database {
     }
 }
 exports.Database = Database;
+const db = new Database();
+db.createDBconnection();
 // let updateEntity = async(data: Object) =>{
 //     try {
-//       let updateRepository = await AppDataSource.findOne({data});
+//       let updateRepository = await this.dbconnection.getRepository(data).findOneBy({
+//       id:1
+//       });
 //       updateRepository.name = "Hello";
 //       await updateRepository.save();
 //     } catch (error) {

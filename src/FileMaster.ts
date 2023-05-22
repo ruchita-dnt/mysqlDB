@@ -1,7 +1,8 @@
 import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import { FileStatusEnum } from "./Enum";
 
-@Entity()
-export class filemaster {
+@Entity("file_master")
+export class file_master {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -35,9 +36,9 @@ export class filemaster {
   @Column("datetime")
   endTime: Date;
 
-  // @Column("int")
-  // fileStatusId: number;
-
+  @Column({ type: 'enum', enum: FileStatusEnum }) 
+  fileStatusId: FileStatusEnum ;
+  
   @Column("datetime")
   createdAt: Date;
 

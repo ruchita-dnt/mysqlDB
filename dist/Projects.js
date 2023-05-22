@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.projects = void 0;
 const typeorm_1 = require("typeorm");
+const Enum_1 = require("./Enum");
 let projects = class projects {
 };
 __decorate([
@@ -25,6 +26,10 @@ __decorate([
     (0, typeorm_1.Column)({ type: 'text' }),
     __metadata("design:type", String)
 ], projects.prototype, "description", void 0);
+__decorate([
+    (0, typeorm_1.Column)({ type: 'enum', enum: Enum_1.ResourceStatusEnum }),
+    __metadata("design:type", String)
+], projects.prototype, "status", void 0);
 __decorate([
     (0, typeorm_1.Column)("datetime"),
     __metadata("design:type", Date)

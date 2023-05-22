@@ -1,16 +1,13 @@
 import { DataSource } from "typeorm";
-import { filemaster } from "./FileMaster";
-import { fileprocessdetails } from "./FileProcessDetails";
-import { filetypes } from "./FileTypes";
+import { file_master } from "./FileMaster";
+import { file_process_details } from "./FileProcessDetails";
+import { file_types } from "./FileTypes";
 import { operations } from "./Operations";
 import { projects } from "./Projects";
 
-
-
 export class Database {
-  public dbconnection;
-
-  // console.log("this is datasource", DataSource, AppDataSource)
+  
+  public dbconnection; 
 
   async createDBconnection() {
     this.dbconnection = new DataSource({
@@ -24,9 +21,9 @@ export class Database {
       synchronize: true,
       logging: true,
       entities: [
-        filemaster,
-        fileprocessdetails,
-        filetypes,
+        file_master,
+        file_process_details,
+        file_types,
         operations,
         projects,
       ],
@@ -75,16 +72,20 @@ export class Database {
     }
   }
 }
+
+const db = new Database();
+db.createDBconnection();
 // let updateEntity = async(data: Object) =>{
 //     try {
-//       let updateRepository = await AppDataSource.findOne({data});
+//       let updateRepository = await this.dbconnection.getRepository(data).findOneBy({
+//       id:1
+//       });
 
 //       updateRepository.name = "Hello";
 
 //       await updateRepository.save();
 //     } catch (error) {
 //       console.log("Update Entity failed");
-
 //       return error;
 //     }
 //   }

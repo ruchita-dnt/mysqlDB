@@ -9,32 +9,37 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.fileprocessdetails = void 0;
+exports.file_process_details = void 0;
 const typeorm_1 = require("typeorm");
-let fileprocessdetails = class fileprocessdetails {
+const Enum_1 = require("./Enum");
+let file_process_details = class file_process_details {
 };
 __decorate([
     (0, typeorm_1.PrimaryGeneratedColumn)(),
     __metadata("design:type", Number)
-], fileprocessdetails.prototype, "id", void 0);
+], file_process_details.prototype, "id", void 0);
 __decorate([
     (0, typeorm_1.Column)("int"),
     __metadata("design:type", Number)
-], fileprocessdetails.prototype, "fileId", void 0);
+], file_process_details.prototype, "fileId", void 0);
+__decorate([
+    (0, typeorm_1.Column)({ type: 'enum', enum: Enum_1.FileStatusEnum }),
+    __metadata("design:type", String)
+], file_process_details.prototype, "fileStatusId", void 0);
 __decorate([
     (0, typeorm_1.Column)({ type: 'text' }),
     __metadata("design:type", String)
-], fileprocessdetails.prototype, "description", void 0);
+], file_process_details.prototype, "description", void 0);
 __decorate([
     (0, typeorm_1.Column)("datetime"),
     __metadata("design:type", Date)
-], fileprocessdetails.prototype, "time", void 0);
+], file_process_details.prototype, "time", void 0);
 __decorate([
     (0, typeorm_1.Column)("datetime"),
     __metadata("design:type", Date)
-], fileprocessdetails.prototype, "createdAt", void 0);
-fileprocessdetails = __decorate([
-    (0, typeorm_1.Entity)("fileprocessdetails")
-], fileprocessdetails);
-exports.fileprocessdetails = fileprocessdetails;
+], file_process_details.prototype, "createdAt", void 0);
+file_process_details = __decorate([
+    (0, typeorm_1.Entity)("file_process_details")
+], file_process_details);
+exports.file_process_details = file_process_details;
 //# sourceMappingURL=FileProcessDetails.js.map

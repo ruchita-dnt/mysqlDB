@@ -1,4 +1,5 @@
-export declare class filemaster {
+import { FileStatusEnum } from "./Enum";
+export declare class file_master {
     id: number;
     operationId: number;
     projectId: number;
@@ -10,6 +11,7 @@ export declare class filemaster {
     stagingAreaPath: string;
     startTime: Date;
     endTime: Date;
+    fileStatusId: FileStatusEnum;
     createdAt: Date;
     updatedAt: Date;
 }

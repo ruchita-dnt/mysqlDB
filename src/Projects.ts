@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column, Binary } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import { ResourceStatusEnum } from "./Enum";
 
 @Entity('projects')
 export class projects {
@@ -11,8 +12,8 @@ export class projects {
   @Column({ type: 'text' })
   description: string;
 
-  // @Column({ type: 'enum'})
-  // status: unknown ;
+  @Column({ type: 'enum' , enum: ResourceStatusEnum})
+  status: ResourceStatusEnum ;
 
   @Column("datetime")
   createdAt: Date;
@@ -23,3 +24,4 @@ export class projects {
   @Column("datetime", { nullable: true })
   deletedAt: Date;
 }
+

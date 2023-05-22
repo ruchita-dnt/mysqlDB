@@ -1,6 +1,7 @@
-import { Entity, PrimaryGeneratedColumn, Column, Binary } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import { ResourceStatusEnum } from "./Enum";
 
-@Entity("operation")
+@Entity("operations")
 export class operations {
   @PrimaryGeneratedColumn()
   id: number;
@@ -11,8 +12,8 @@ export class operations {
   @Column("varchar",{ length: 45 })
   operationCode: string;
 
-  // @Column({ type: 'enum'})
-  // status: unknown ;
+  @Column({ type: 'enum' , enum: ResourceStatusEnum})
+  status: ResourceStatusEnum ;
 
   @Column("datetime")
   createdAt: Date;
@@ -20,6 +21,6 @@ export class operations {
   @Column("datetime")
   updatedAt: Date;
 
-  @Column("datetime")
+  @Column("datetime", { nullable: true })
   deletedAt: Date;
 }

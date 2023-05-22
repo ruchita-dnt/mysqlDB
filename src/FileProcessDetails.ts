@@ -1,15 +1,16 @@
 import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import { FileStatusEnum } from "./Enum";
 
-@Entity("fileprocessdetails")
-export class fileprocessdetails {
+@Entity("file_process_details")
+export class file_process_details {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column("int")
   fileId: number;
 
-  // @Column("int")
-  // fileStatusId: number;
+  @Column({ type: 'enum', enum: FileStatusEnum }) 
+  fileStatusId: FileStatusEnum ;
 
   @Column({ type: 'text' })
   description: string;
