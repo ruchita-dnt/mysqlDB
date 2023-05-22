@@ -1,17 +1,17 @@
 import { FileStatusEnum } from "./Enum";
-export declare class file_master {
+export declare class Documents {
     id: number;
     operationId: number;
     projectId: number;
-    fileTypeId: number;
+    documentTypeId: number;
     tailNo: string;
     flightNo: string;
-    fileName: string;
+    documentName: string;
     sourcePath: string;
     stagingAreaPath: string;
-    startTime: Date;
-    endTime: Date;
-    fileStatusId: FileStatusEnum;
+    status: FileStatusEnum;
+    processStartTime: Date;
+    processEndTime: Date;
     createdAt: Date;
     updatedAt: Date;
 }

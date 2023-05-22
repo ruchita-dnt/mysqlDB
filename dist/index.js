@@ -2,9 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Database = void 0;
 const typeorm_1 = require("typeorm");
-const FileMaster_1 = require("./FileMaster");
-const FileProcessDetails_1 = require("./FileProcessDetails");
-const FileTypes_1 = require("./FileTypes");
+const Documents_1 = require("./Documents");
+const DocumentAuditTrail_1 = require("./DocumentAuditTrail");
+const DocumentTypes_1 = require("./DocumentTypes");
 const Operations_1 = require("./Operations");
 const Projects_1 = require("./Projects");
 class Database {
@@ -18,13 +18,13 @@ class Database {
             password: "Admin@123",
             database: "gedms",
             synchronize: true,
-            logging: true,
+            logging: false,
             entities: [
-                FileMaster_1.file_master,
-                FileProcessDetails_1.file_process_details,
-                FileTypes_1.file_types,
-                Operations_1.operations,
-                Projects_1.projects,
+                Documents_1.Documents,
+                DocumentTypes_1.DocumentTypes,
+                DocumentAuditTrail_1.DocumentAuditTrail,
+                Operations_1.Operations,
+                Projects_1.Projects,
             ],
             subscribers: [],
             migrations: [],

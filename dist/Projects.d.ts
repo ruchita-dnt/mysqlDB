@@ -1,5 +1,5 @@
 import { ResourceStatusEnum } from "./Enum";
-export declare class projects {
+export declare class Projects {
     id: number;
     name: string;
     description: string;

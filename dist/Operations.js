@@ -9,41 +9,41 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.operations = void 0;
+exports.Operations = void 0;
 const typeorm_1 = require("typeorm");
 const Enum_1 = require("./Enum");
-let operations = class operations {
+let Operations = class Operations {
 };
 __decorate([
     (0, typeorm_1.PrimaryGeneratedColumn)(),
     __metadata("design:type", Number)
-], operations.prototype, "id", void 0);
+], Operations.prototype, "id", void 0);
 __decorate([
     (0, typeorm_1.Column)("varchar", { length: 45 }),
     __metadata("design:type", String)
-], operations.prototype, "operationName", void 0);
+], Operations.prototype, "operationName", void 0);
 __decorate([
     (0, typeorm_1.Column)("varchar", { length: 45 }),
     __metadata("design:type", String)
-], operations.prototype, "operationCode", void 0);
+], Operations.prototype, "operationCode", void 0);
 __decorate([
     (0, typeorm_1.Column)({ type: 'enum', enum: Enum_1.ResourceStatusEnum }),
     __metadata("design:type", String)
-], operations.prototype, "status", void 0);
+], Operations.prototype, "status", void 0);
 __decorate([
     (0, typeorm_1.Column)("datetime"),
     __metadata("design:type", Date)
-], operations.prototype, "createdAt", void 0);
+], Operations.prototype, "createdAt", void 0);
 __decorate([
     (0, typeorm_1.Column)("datetime"),
     __metadata("design:type", Date)
-], operations.prototype, "updatedAt", void 0);
+], Operations.prototype, "updatedAt", void 0);
 __decorate([
     (0, typeorm_1.Column)("datetime", { nullable: true }),
     __metadata("design:type", Date)
-], operations.prototype, "deletedAt", void 0);
-operations = __decorate([
-    (0, typeorm_1.Entity)("operations")
-], operations);
-exports.operations = operations;
+], Operations.prototype, "deletedAt", void 0);
+Operations = __decorate([
+    (0, typeorm_1.Entity)("Operations")
+], Operations);
+exports.Operations = Operations;
 //# sourceMappingURL=Operations.js.map

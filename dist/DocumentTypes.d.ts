@@ -1,8 +1,8 @@
 import { ResourceStatusEnum } from "./Enum";
-export declare class file_types {
+export declare class DocumentTypes {
     id: number;
     projectId: number;
-    type: string;
+    documentType: string;
     status: ResourceStatusEnum;
     createdAt: Date;
     updatedAt: Date;

@@ -9,41 +9,41 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.projects = void 0;
+exports.Projects = void 0;
 const typeorm_1 = require("typeorm");
 const Enum_1 = require("./Enum");
-let projects = class projects {
+let Projects = class Projects {
 };
 __decorate([
     (0, typeorm_1.PrimaryGeneratedColumn)(),
     __metadata("design:type", Number)
-], projects.prototype, "id", void 0);
+], Projects.prototype, "id", void 0);
 __decorate([
     (0, typeorm_1.Column)("varchar", { length: 45 }),
     __metadata("design:type", String)
-], projects.prototype, "name", void 0);
+], Projects.prototype, "name", void 0);
 __decorate([
     (0, typeorm_1.Column)({ type: 'text' }),
     __metadata("design:type", String)
-], projects.prototype, "description", void 0);
+], Projects.prototype, "description", void 0);
 __decorate([
     (0, typeorm_1.Column)({ type: 'enum', enum: Enum_1.ResourceStatusEnum }),
     __metadata("design:type", String)
-], projects.prototype, "status", void 0);
+], Projects.prototype, "status", void 0);
 __decorate([
     (0, typeorm_1.Column)("datetime"),
     __metadata("design:type", Date)
-], projects.prototype, "createdAt", void 0);
+], Projects.prototype, "createdAt", void 0);
 __decorate([
     (0, typeorm_1.Column)("datetime"),
     __metadata("design:type", Date)
-], projects.prototype, "updatedAt", void 0);
+], Projects.prototype, "updatedAt", void 0);
 __decorate([
     (0, typeorm_1.Column)("datetime", { nullable: true }),
     __metadata("design:type", Date)
-], projects.prototype, "deletedAt", void 0);
-projects = __decorate([
-    (0, typeorm_1.Entity)('projects')
-], projects);
-exports.projects = projects;
+], Projects.prototype, "deletedAt", void 0);
+Projects = __decorate([
+    (0, typeorm_1.Entity)('Projects')
+], Projects);
+exports.Projects = Projects;
 //# sourceMappingURL=Projects.js.map

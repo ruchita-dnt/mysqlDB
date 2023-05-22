@@ -1,8 +1,8 @@
 import { FileStatusEnum } from "./Enum";
-export declare class file_process_details {
+export declare class DocumentAuditTrail {
     id: number;
-    fileId: number;
-    fileStatusId: FileStatusEnum;
+    documentId: number;
+    status: FileStatusEnum;
     description: string;
     time: Date;
     createdAt: Date;
