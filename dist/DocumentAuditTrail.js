@@ -35,7 +35,7 @@ __decorate([
     __metadata("design:type", Date)
 ], DocumentAuditTrail.prototype, "time", void 0);
 __decorate([
-    (0, typeorm_1.Column)("datetime"),
+    (0, typeorm_1.CreateDateColumn)({ type: "timestamp", default: () => "CURRENT_TIMESTAMP(6)" }),
     __metadata("design:type", Date)
 ], DocumentAuditTrail.prototype, "createdAt", void 0);
 DocumentAuditTrail = __decorate([

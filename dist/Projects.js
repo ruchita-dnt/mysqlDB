@@ -31,11 +31,11 @@ __decorate([
     __metadata("design:type", String)
 ], Projects.prototype, "status", void 0);
 __decorate([
-    (0, typeorm_1.Column)("datetime"),
+    (0, typeorm_1.CreateDateColumn)({ type: "timestamp", default: () => "CURRENT_TIMESTAMP(6)" }),
     __metadata("design:type", Date)
 ], Projects.prototype, "createdAt", void 0);
 __decorate([
-    (0, typeorm_1.Column)("datetime"),
+    (0, typeorm_1.UpdateDateColumn)({ type: "timestamp", default: () => "CURRENT_TIMESTAMP(6)", onUpdate: "CURRENT_TIMESTAMP(6)" }),
     __metadata("design:type", Date)
 ], Projects.prototype, "updatedAt", void 0);
 __decorate([

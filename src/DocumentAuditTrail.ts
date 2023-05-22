@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn } from "typeorm";
 import { FileStatusEnum } from "./Enum";
 
 @Entity("DocumentAuditTrail")
@@ -18,6 +18,6 @@ export class DocumentAuditTrail {
   @Column("datetime")
   time!: Date;
 
-  @Column("datetime")
+  @CreateDateColumn({ type: "timestamp", default: () => "CURRENT_TIMESTAMP(6)" })
   createdAt!: Date;
 }

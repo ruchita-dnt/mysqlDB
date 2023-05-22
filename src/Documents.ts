@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn } from "typeorm";
 import { FileStatusEnum } from "./Enum";
 
 @Entity("Documents")
@@ -40,11 +40,10 @@ export class Documents {
   processEndTime!: Date;
 
   
-  
-  @Column("datetime")
+  @CreateDateColumn({ type: "timestamp", default: () => "CURRENT_TIMESTAMP(6)" })
   createdAt!: Date;
 
-  @Column("datetime")
+  @UpdateDateColumn({ type: "timestamp", default: () => "CURRENT_TIMESTAMP(6)", onUpdate: "CURRENT_TIMESTAMP(6)" })   
   updatedAt!: Date;
 
 }
