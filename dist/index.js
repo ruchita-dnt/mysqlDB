@@ -8,16 +8,15 @@ const DocumentTypes_1 = require("./DocumentTypes");
 const Operations_1 = require("./Operations");
 const Projects_1 = require("./Projects");
 class Database {
-    async createDBconnection() {
-        this.dbconnection = new typeorm_1.DataSource({
+    constructor() {
+        this.AppDataSource = new typeorm_1.DataSource({
             type: "mysql",
             host: "35.228.4.120",
-            //   host: "0.0.0.0",
             port: 3306,
             username: "root",
             password: "Admin@123",
             database: "gedms",
-            synchronize: true,
+            synchronize: false,
             logging: false,
             entities: [
                 Documents_1.Documents,
@@ -28,19 +27,27 @@ class Database {
             ],
             subscribers: [],
             migrations: [],
+            connectTimeout: 600000,
         });
-        this.dbconnection
-            .initialize()
-            .then(() => {
-            console.log("Data Source has been initialized!");
-        })
-            .catch((err) => {
-            console.error("Error during Data Source initialization", err);
-        });
+    }
+    async createDBconnection() {
+        const isInitialized = this.AppDataSource.isInitialized;
+        if (isInitialized === false) {
+            return this.AppDataSource.initialize()
+                .then(() => {
+                console.log("Data Source has been initialized! b");
+                return this.AppDataSource;
+            })
+                .catch((error) => {
+                console.log("Error", error);
+            });
+        }
+        console.log("Data Source has been initialized! a");
+        return this.AppDataSource;
     }
     async getEntity(tableName) {
         try {
-            let entityData = this.dbconnection.getRepository(tableName);
+            let entityData = this.AppDataSource.getRepository(tableName);
             return entityData;
         }
         catch (error) {
@@ -70,8 +77,8 @@ class Database {
     }
 }
 exports.Database = Database;
-const db = new Database();
-db.createDBconnection();
+// const db = new Database();
+// db.createDBconnection();
 // let updateEntity = async(data: Object) =>{
 //     try {
 //       let updateRepository = await this.dbconnection.getRepository(data).findOneBy({

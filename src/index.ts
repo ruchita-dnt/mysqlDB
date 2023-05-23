@@ -6,43 +6,45 @@ import { Operations } from "./Operations";
 import { Projects } from "./Projects";
 
 export class Database {
-  
-  public dbconnection!: DataSource; 
+  private AppDataSource = new DataSource({
+    type: "mysql",
+    host: "35.228.4.120",
+    port: 3306,
+    username: "root",
+    password: "Admin@123",
+    database: "gedms",
+    synchronize: false,
+    logging: false,
+    entities: [
+      Documents,
+      DocumentTypes,
+      DocumentAuditTrail,
+      Operations,
+      Projects,
+    ],
+    subscribers: [],
+    migrations: [],
+    connectTimeout: 600000,
+  });
 
-  async createDBconnection() {
-    this.dbconnection = new DataSource({
-      type: "mysql",
-      host: "35.228.4.120",
-      //   host: "0.0.0.0",
-      port: 3306,
-      username: "root",
-      password: "Admin@123",
-      database: "gedms",
-      synchronize: true,
-      logging: false,
-      entities: [
-        Documents,
-        DocumentTypes,
-        DocumentAuditTrail,
-        Operations,
-        Projects,
-      ],
-      subscribers: [],
-      migrations: [],
-    });
-
-    this.dbconnection
-      .initialize()
-      .then(() => {
-        console.log("Data Source has been initialized!");
-      })
-      .catch((err:any) => {
-        console.error("Error during Data Source initialization", err);
-      });
+  async createDBconnection(): Promise<DataSource> {
+    const isInitialized = this.AppDataSource.isInitialized;
+    if (isInitialized === false) {
+      return this.AppDataSource.initialize()
+        .then((): any => {
+          console.log("Data Source has been initialized! b");
+          return this.AppDataSource;
+        })
+        .catch((error) => {
+          console.log("Error", error);
+        });
+    }
+    console.log("Data Source has been initialized! a");
+    return this.AppDataSource;
   }
   async getEntity(tableName: any) {
     try {
-      let entityData = this.dbconnection.getRepository(tableName);
+      let entityData = this.AppDataSource.getRepository(tableName);
       return entityData;
     } catch (error) {
       console.log("Connection to repository is failed");
@@ -73,8 +75,9 @@ export class Database {
   }
 }
 
-const db = new Database();
-db.createDBconnection();
+// const db = new Database();
+// db.createDBconnection();
+
 // let updateEntity = async(data: Object) =>{
 //     try {
 //       let updateRepository = await this.dbconnection.getRepository(data).findOneBy({

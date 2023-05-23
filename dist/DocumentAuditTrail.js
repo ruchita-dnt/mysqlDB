@@ -23,11 +23,11 @@ __decorate([
     __metadata("design:type", Number)
 ], DocumentAuditTrail.prototype, "documentId", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ type: 'enum', enum: Enum_1.FileStatusEnum }),
+    (0, typeorm_1.Column)({ type: "enum", enum: Enum_1.FileStatusEnum }),
     __metadata("design:type", String)
 ], DocumentAuditTrail.prototype, "status", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ type: 'text' }),
+    (0, typeorm_1.Column)({ type: "text" }),
     __metadata("design:type", String)
 ], DocumentAuditTrail.prototype, "description", void 0);
 __decorate([
@@ -35,7 +35,10 @@ __decorate([
     __metadata("design:type", Date)
 ], DocumentAuditTrail.prototype, "time", void 0);
 __decorate([
-    (0, typeorm_1.CreateDateColumn)({ type: "timestamp", default: () => "CURRENT_TIMESTAMP(6)" }),
+    (0, typeorm_1.CreateDateColumn)({
+        type: "timestamp",
+        default: () => "CURRENT_TIMESTAMP(6)",
+    }),
     __metadata("design:type", Date)
 ], DocumentAuditTrail.prototype, "createdAt", void 0);
 DocumentAuditTrail = __decorate([

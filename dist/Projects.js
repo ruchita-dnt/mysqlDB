@@ -23,19 +23,26 @@ __decorate([
     __metadata("design:type", String)
 ], Projects.prototype, "name", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ type: 'text' }),
+    (0, typeorm_1.Column)({ type: "text" }),
     __metadata("design:type", String)
 ], Projects.prototype, "description", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ type: 'enum', enum: Enum_1.ResourceStatusEnum }),
+    (0, typeorm_1.Column)({ type: "enum", enum: Enum_1.ResourceStatusEnum }),
     __metadata("design:type", String)
 ], Projects.prototype, "status", void 0);
 __decorate([
-    (0, typeorm_1.CreateDateColumn)({ type: "timestamp", default: () => "CURRENT_TIMESTAMP(6)" }),
+    (0, typeorm_1.CreateDateColumn)({
+        type: "timestamp",
+        default: () => "CURRENT_TIMESTAMP(6)",
+    }),
     __metadata("design:type", Date)
 ], Projects.prototype, "createdAt", void 0);
 __decorate([
-    (0, typeorm_1.UpdateDateColumn)({ type: "timestamp", default: () => "CURRENT_TIMESTAMP(6)", onUpdate: "CURRENT_TIMESTAMP(6)" }),
+    (0, typeorm_1.UpdateDateColumn)({
+        type: "timestamp",
+        default: () => "CURRENT_TIMESTAMP(6)",
+        onUpdate: "CURRENT_TIMESTAMP(6)",
+    }),
     __metadata("design:type", Date)
 ], Projects.prototype, "updatedAt", void 0);
 __decorate([
@@ -43,7 +50,7 @@ __decorate([
     __metadata("design:type", Date)
 ], Projects.prototype, "deletedAt", void 0);
 Projects = __decorate([
-    (0, typeorm_1.Entity)('Projects')
+    (0, typeorm_1.Entity)("Projects")
 ], Projects);
 exports.Projects = Projects;
 //# sourceMappingURL=Projects.js.map

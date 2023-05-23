@@ -51,7 +51,7 @@ __decorate([
     __metadata("design:type", String)
 ], Documents.prototype, "stagingAreaPath", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ type: 'enum', enum: Enum_1.FileStatusEnum }),
+    (0, typeorm_1.Column)({ type: "enum", enum: Enum_1.FileStatusEnum }),
     __metadata("design:type", String)
 ], Documents.prototype, "status", void 0);
 __decorate([
@@ -63,11 +63,18 @@ __decorate([
     __metadata("design:type", Date)
 ], Documents.prototype, "processEndTime", void 0);
 __decorate([
-    (0, typeorm_1.CreateDateColumn)({ type: "timestamp", default: () => "CURRENT_TIMESTAMP(6)" }),
+    (0, typeorm_1.CreateDateColumn)({
+        type: "timestamp",
+        default: () => "CURRENT_TIMESTAMP(6)",
+    }),
     __metadata("design:type", Date)
 ], Documents.prototype, "createdAt", void 0);
 __decorate([
-    (0, typeorm_1.UpdateDateColumn)({ type: "timestamp", default: () => "CURRENT_TIMESTAMP(6)", onUpdate: "CURRENT_TIMESTAMP(6)" }),
+    (0, typeorm_1.UpdateDateColumn)({
+        type: "timestamp",
+        default: () => "CURRENT_TIMESTAMP(6)",
+        onUpdate: "CURRENT_TIMESTAMP(6)",
+    }),
     __metadata("design:type", Date)
 ], Documents.prototype, "updatedAt", void 0);
 Documents = __decorate([

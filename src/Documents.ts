@@ -1,4 +1,10 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn } from "typeorm";
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  CreateDateColumn,
+  UpdateDateColumn,
+} from "typeorm";
 import { FileStatusEnum } from "./Enum";
 
 @Entity("Documents")
@@ -30,7 +36,7 @@ export class Documents {
   @Column("varchar", { length: 255 })
   stagingAreaPath!: string;
 
-  @Column({ type: 'enum', enum: FileStatusEnum })
+  @Column({ type: "enum", enum: FileStatusEnum })
   status!: FileStatusEnum;
 
   @Column("datetime")
@@ -39,11 +45,16 @@ export class Documents {
   @Column("datetime")
   processEndTime!: Date;
 
-  
-  @CreateDateColumn({ type: "timestamp", default: () => "CURRENT_TIMESTAMP(6)" })
+  @CreateDateColumn({
+    type: "timestamp",
+    default: () => "CURRENT_TIMESTAMP(6)",
+  })
   createdAt!: Date;
 
-  @UpdateDateColumn({ type: "timestamp", default: () => "CURRENT_TIMESTAMP(6)", onUpdate: "CURRENT_TIMESTAMP(6)" })   
+  @UpdateDateColumn({
+    type: "timestamp",
+    default: () => "CURRENT_TIMESTAMP(6)",
+    onUpdate: "CURRENT_TIMESTAMP(6)",
+  })
   updatedAt!: Date;
-
 }

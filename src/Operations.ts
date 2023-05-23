@@ -1,4 +1,10 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn } from "typeorm";
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  CreateDateColumn,
+  UpdateDateColumn,
+} from "typeorm";
 import { ResourceStatusEnum } from "./Enum";
 
 @Entity("Operations")
@@ -12,14 +18,21 @@ export class Operations {
   @Column("varchar", { length: 45 })
   operationCode!: string;
 
-  @Column({ type: 'enum', enum: ResourceStatusEnum })
+  @Column({ type: "enum", enum: ResourceStatusEnum })
   status!: ResourceStatusEnum;
 
   // @Column("datetime")
-  @CreateDateColumn({ type: "timestamp", default: () => "CURRENT_TIMESTAMP(6)" })
+  @CreateDateColumn({
+    type: "timestamp",
+    default: () => "CURRENT_TIMESTAMP(6)",
+  })
   createdAt!: Date;
 
-  @UpdateDateColumn({ type: "timestamp", default: () => "CURRENT_TIMESTAMP(6)", onUpdate: "CURRENT_TIMESTAMP(6)" })   
+  @UpdateDateColumn({
+    type: "timestamp",
+    default: () => "CURRENT_TIMESTAMP(6)",
+    onUpdate: "CURRENT_TIMESTAMP(6)",
+  })
   updatedAt!: Date;
 
   @Column("datetime", { nullable: true })
